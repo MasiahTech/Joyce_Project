@@ -28,19 +28,6 @@ services:
       - '1337:1337'
     networks:
       - JoyceAdmin
-  joyceadminAdminer:
-    container_name: joyceadminAdminer
-    image: adminer
-    restart: unless-stopped
-    ports:
-      - '9090:8080'
-    environment:
-      - ADMINER_DEFAULT_SERVER=joyceadminDB
-    networks:
-      - joyceadmin
-    depends_on:
-      - JoyceAdminDB
-
 volumes:
   joyceadmin-data:
 
