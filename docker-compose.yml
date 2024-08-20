@@ -1,9 +1,9 @@
 version: '3'
 services:
   JoyceAdmin:
-    container_name: JoyceAdmin
+    container_name: joyceadmin
     build: .
-    image: JoyceAdmin:latest
+    image: joyceadmin:latest
     restart: unless-stopped
     env_file: .env
     environment:
