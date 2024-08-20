@@ -1,6 +1,7 @@
 export default ({ env }) => ({
-  host: env('HOST', '74.208.237.199'),
+  host: env('HOST', '0.0.0.0'),
   port: env.int('PORT', 1337),
+  url: 'https://jadmin.onlycraft.cloud',
   app: {
     keys: env.array('APP_KEYS'),
   },
