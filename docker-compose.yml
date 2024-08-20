@@ -8,7 +8,7 @@ services:
     env_file: .env
     environment:
       DATABASE_CLIENT: ${DATABASE_CLIENT}
-      DATABASE_HOST: joyceadminDB
+      DATABASE_HOST: ep-mute-sunset-a4f9yh2u-pooler.us-east-1.aws.neon.tech
       DATABASE_NAME: ${DATABASE_NAME}
       DATABASE_USERNAME: ${DATABASE_USERNAME}
       DATABASE_PORT: ${DATABASE_PORT}
@@ -28,28 +28,6 @@ services:
       - '1337:1337'
     networks:
       - JoyceAdmin
-    depends_on:
-      - JoyceAdminDB
-      
-  joyceadminDB:
-    container_name: joyceadminDB
-    platform: linux/amd64 #for platform error on Apple M1 chips
-    restart: unless-stopped
-    env_file: .env
-    image: postgres:14.5-alpine
-    environment:
-      POSTGRES_USER: ${DATABASE_USERNAME}
-      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-      POSTGRES_DB: ${DATABASE_NAME}
-    volumes:
-      - joyceadmin-data:/var/lib/postgresql/data/ #using a volume
-      #- ./data:/var/lib/postgresql/data/ # if you want to use a bind folder
-
-    ports:
-      - '5432:5432'
-    networks:
-      - joyceadmin
-      
   joyceadminAdminer:
     container_name: joyceadminAdminer
     image: adminer
